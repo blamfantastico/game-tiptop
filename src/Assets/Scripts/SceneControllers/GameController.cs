@@ -71,7 +71,6 @@ public class GameController : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
-        TapsellStandardBanner.Hide();
         InvokeRepeating("addScore", 1f, 1f);
     }
 
@@ -92,7 +91,6 @@ public class GameController : MonoBehaviour
     {
         IsGameOver = true;
         Time.timeScale = 0;
-        TapsellStandardBanner.Show();
         CancelInvoke("AddScore");
         if (Score > BestScore)
         {

@@ -28,9 +28,6 @@ allprojects {
         maven {
             url "https://maven.google.com"
         }
-        maven {
-            url "https://dl.bintray.com/tapsellorg/maven" // Assets/Tapsell/Editor/TapsellDependencies.xml:5
-        }
         mavenLocal()
         jcenter()
         mavenCentral()
@@ -43,7 +40,6 @@ apply plugin: 'com.android.application'
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 // Android Resolver Dependencies Start
-    implementation 'ir.tapsell.sdk:tapsell-sdk-unity:4.3.0' // Assets/Tapsell/Editor/TapsellDependencies.xml:6
 // Android Resolver Dependencies End
 **DEPS**}
 
