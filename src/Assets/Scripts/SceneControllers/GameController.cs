@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static Teak;
 
 public class GameController : MonoBehaviour
 {
@@ -111,6 +112,10 @@ public class GameController : MonoBehaviour
 
     public void Restart()
     {
+        Debug.Log("Restart!!!!");
+
+        Teak.Instance.RegisterForNotifications();
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
