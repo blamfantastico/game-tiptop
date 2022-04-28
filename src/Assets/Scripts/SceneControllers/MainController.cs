@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Teak;
 
 public class MainController : MonoBehaviour
 {
@@ -14,9 +15,22 @@ public class MainController : MonoBehaviour
     public const string Prefs_Sounds_Key = "sounds";
     public const int Prefs_Sounds_DefaultValue = 1;
 
+    void HandleLogEvent(Dictionary<string, object> logData) {
+        Debug.Log(new TeakLogEvent(logData));
+    }
+
     void Awake()
     {
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
         Application.targetFrameRate = 60;
+
+        Debug.Log("Teak NOW!!!!");
+
+        Teak.Instance.OnLogEvent += HandleLogEvent;
+
+        UserConfiguration userConfiguration = new UserConfiguration {
+            Email = "user@test.com"
+        };
+        Teak.Instance.IdentifyUser("user_123456", userConfiguration); // Hardcoding the user ID: Not great.
     }
 }
